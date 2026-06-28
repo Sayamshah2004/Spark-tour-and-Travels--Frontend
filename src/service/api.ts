@@ -2,7 +2,7 @@ import {api} from "./axiosInstance.ts";
 import {apiFile} from "./axiosInstance.ts";
 export async function getHomeData() {
   const response = await api.get("/api/packages/?limit=3"); 
-  return response.data;
+  return response.data.data ?? response.data;
 }
 
 export async function getReviews() {

@@ -12,6 +12,7 @@ export default function BucketListAdventures() {
   const navigate = useNavigate();
 
   const { data } = useSelector((state: RootState) => state.home);
+  const items = Array.isArray(data) ? data : [];
 
   const handleClick = (id:any) => {
       dispatch(fetchPackageDetailsRequest(id))
@@ -53,7 +54,7 @@ export default function BucketListAdventures() {
       </motion.h3>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {data?.map((item: any, index: number) => (
+        {items.map((item: any, index: number) => (
           <motion.div
             key={item._id}
             initial={{ opacity: 0, y: 40 }}
@@ -69,8 +70,8 @@ export default function BucketListAdventures() {
                   <motion.img
                     whileHover={{ scale: 1.08 }}
                     transition={{ duration: 0.4 }}
-                    src={item.images[0].url}
-                    alt={item.title}
+                    src={item.images?.[0]?.url ?? ""}
+                    alt={item.title ?? "Bucket list adventure"}
                     className="w-full h-60 object-cover cursor-pointer"
                     onClick={()=>handleClick(item._id)}
                   />

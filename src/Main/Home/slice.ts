@@ -11,10 +11,10 @@ export interface HomeState {
 }
 
 const initialState: HomeState = {
-  data: null,
+  data: [],
   loadingPck: false,
   error: null,
-    ReviewsLoading: false,
+  ReviewsLoading: false,
   ReviewsError: null,
   Reviewsdata: null,
 };
@@ -25,8 +25,8 @@ const homeSlice = createSlice({
   reducers: {
     fetchHomeDataRequest: (state) => {
       state.loadingPck = true;
-      state.error = null; 
-      state.data = null; 
+      state.error = null;
+      state.data = [];
     },
     fetchHomeDataSuccess: (state, action: PayloadAction<any>) => {
       state.loadingPck = false;
@@ -35,8 +35,8 @@ const homeSlice = createSlice({
     },
     fetchHomeDataFailure: (state, action: PayloadAction<string>) => {
       state.loadingPck = false;
-      state.error = action.payload;  
-      state.data = null; 
+      state.error = action.payload;
+      state.data = [];
     },
      fetchReviewsRequest: (state) => {
       state.ReviewsLoading = true;
