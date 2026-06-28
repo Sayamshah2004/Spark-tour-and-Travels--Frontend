@@ -4,7 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import type { RootState } from "../redux/store";
 import { logOut } from "../Auth/slice";
-import sparksLogo from "../assets/sparks_logo.png";
+import sparksLogo from "../assets/Spark-Logo.png";
 import { motion } from "framer-motion";
 import { MenuOutlined, CloseOutlined } from "@ant-design/icons";
 import { InstagramOutlined, WhatsAppOutlined } from "@ant-design/icons"; // ✅ Social icons
